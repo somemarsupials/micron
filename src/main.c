@@ -3,6 +3,7 @@
 #include <unistd.h>
 
 #include "main.h"
+#include "requests/package.h"
 
 static struct Options options;
 
