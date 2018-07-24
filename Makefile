@@ -1,9 +1,24 @@
-all: build
+# toolchain
+cc=gcc
+cflags=-Iinclude -Wall
 
-build: src/main.c
-	@echo "building Micron..."
-	gcc -Wall -Iinclude -o bin/micron src/main.c
-	@echo "build complete (see bin/micron)"
+# build
+target=micron
+
+# source files
+src=$(shell find ./src -name "*.c")
+obj=$(patsubst %.c, %.o, $(src))
+
+# rules
+all: $(target) clean
+
+$(target): $(obj)
+	$(cc) $(obj) -o build/$(target)
+
+%.o: %.c
+	$(cc) $(cflags) -o $@ -c $<
+
+.PHONY: clean
 
 clean:
-	rm -f obj/*.o bin/micron
+	rm -f $(obj)
