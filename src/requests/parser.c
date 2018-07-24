@@ -1,7 +1,9 @@
 #include <string.h>
+#include <stdlib.h>
 
 #include "requests/requests.h"
 #include "requests/parser.h"
+#include "utilities/errors.h"
 
 struct RequestMethodConversion {
   RequestMethod value;
@@ -28,4 +30,13 @@ RequestMethod parseRequestMethod (char* method) {
     };
   };
   return -1;
+}
+
+Request* parseRequest (char* raw) {
+  Request* request = malloc(sizeof(Request));
+  if (!request) {
+    die(MEMORY_ERROR, "could not allocate request object");
+  };
+
+  return request;
 }

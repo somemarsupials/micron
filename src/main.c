@@ -4,13 +4,9 @@
 
 #include "main.h"
 #include "requests/package.h"
+#include "utilities/errors.h"
 
 static struct Options options;
-
-void die(int errorNo, char* message) {
-  fprintf(stderr, "%s\n", message); 
-  exit(errorNo);
-}
 
 int main(int argc, char** argv) {
   // initialise options with default values

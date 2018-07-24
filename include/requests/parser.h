@@ -4,5 +4,6 @@
 #include "requests/requests.h"
 
 RequestMethod parseRequestMethod (char* method);
+Request* parseRequest (char* request);
 
 #endif
