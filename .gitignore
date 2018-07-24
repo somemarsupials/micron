@@ -1,0 +1,8 @@
+# clang
+*.o
+
+# binary
+build/
+
+# vi
+*.swp
