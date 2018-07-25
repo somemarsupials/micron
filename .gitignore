@@ -2,7 +2,7 @@
 *.o
 
 # binary
-build/
+bin/
 
 # vi
 *.swp

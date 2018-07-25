@@ -4,6 +4,6 @@
 #include "utilities/errors.h"
 
 void die (ErrorNo exitCode, char* message) {
-  fprintf(stderr, "%s\n", message);
+  fprintf(stderr, "FATAL:%s\n", message);
   exit(exitCode);
 }

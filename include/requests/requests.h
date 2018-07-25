@@ -8,7 +8,8 @@ typedef enum {
   OPTIONS,
   PATCH,
   POST,
-  PUT
+  PUT,
+  UNKNOWN
 } RequestMethod;
 
 typedef struct _Request {

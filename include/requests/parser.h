@@ -3,7 +3,7 @@
 
 #include "requests/requests.h"
 
-RequestMethod parseRequestMethod (char* method);
+RequestMethod requestMethodStringToEnum (char* method);
 Request* parseRequest (char* request);
 
 #endif
