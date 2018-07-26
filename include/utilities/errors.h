@@ -4,7 +4,8 @@
 typedef enum {
   OK,
   MEMORY_ERROR,
-  BAD_HTTP_METHOD,
+  UNRECOGNISED_OPTION,
+  BAD_OPTION_VALUE,
 } ErrorNo;
 
 void die (ErrorNo exitCode, char* message);

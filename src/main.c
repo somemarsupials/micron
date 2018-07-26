@@ -26,8 +26,10 @@ int main(int argc, char** argv) {
   // check for invalid or missing arguments
 
   if (!options.port) {
-    die(1, "absent or unrecognised port number");
+    die(BAD_OPTION_VALUE, "non-numeric port number");
   }
+
+  // if unrecognised options do something
 
   // run server
 
