@@ -1,8 +1,7 @@
 #include <string.h>
 #include <stdlib.h>
-#include <stdio.h>
 
-#include "requests/request-line.h"
+#include "requests/method.h"
 #include "utilities/errors.h"
 
 struct RequestMethodConversion {
@@ -17,10 +16,10 @@ const static struct RequestMethodConversion requestMethodConversions[] = {
   { OPTIONS,  "OPTIONS" },
   { PATCH,    "PATCH"   },
   { POST,     "POST"    },
-  { PUT,      "PUT"     }
+  { PUT,      "PUT"     },
 };
 
-RequestMethod parseRequestMethod (char* method) {
+RequestMethod requestMethodStringToEnum (char* method) {
   int length = sizeof(requestMethodConversions) / 
     sizeof(requestMethodConversions[0]);
   struct RequestMethodConversion conversion;
@@ -32,14 +31,5 @@ RequestMethod parseRequestMethod (char* method) {
     };
   };
 
-  return UNKNOWN;
-}
-
-Request* parseRequest (char* raw) {
-  Request* request = malloc(sizeof(Request));
-  if (!request) {
-    die(MEMORY_ERROR, "could not allocate request object");
-  };
-
-  return request;
+  return UNKNOWN_REQUEST_METHOD;
 }

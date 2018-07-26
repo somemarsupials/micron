@@ -1,19 +1,10 @@
 #ifndef __MICRON_REQUESTS_REQUESTS__
 #define __MICRON_REQUESTS_REQUESTS__
 
-typedef enum {
-  DELETE,
-  GET,
-  HEAD,
-  OPTIONS,
-  PATCH,
-  POST,
-  PUT,
-  UNKNOWN
-} RequestMethod;
+#include "requests/requestLine.h"
 
 typedef struct _Request {
-  RequestMethod method;
+  RequestLine requestLine;
 } Request;
 
 #endif
