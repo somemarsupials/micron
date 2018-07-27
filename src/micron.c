@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "main.h"
+#include "micron.h"
 #include "requests/package.h"
 #include "utilities/errors.h"
+#include "sockets/bind.h"
+#include "sockets/listen.h"
 
 static struct Options options;
 
@@ -35,4 +37,8 @@ int main(int argc, char** argv) {
 
   printf("MICRON\n");
   printf("Port number: %d\n", options.port);
+  int server = bindTCPSocket(options.port);
+  listenOnTCPSocket(server);
+
+  return 0;
 }
